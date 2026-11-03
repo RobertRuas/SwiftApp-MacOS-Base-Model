@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   release:
-    runs-on: macos-15
+    runs-on: macos-latest-large
     steps:
       - name: Checkout
         uses: actions/checkout@v4
