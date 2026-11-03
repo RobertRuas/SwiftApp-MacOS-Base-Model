@@ -1,4 +1,4 @@
-# MacroTic — File & Directory Map
+# SwiftApp-MacOS-Base-Model — File & Directory Map
 
 > Reference for AI agents. Every file and directory in this project with its exact purpose, contents, and relationships.
 
@@ -17,10 +17,10 @@
 ## Root Files
 
 ```
-MacroTic/
-├── Package.swift              SPM manifest. swift-tools-version:6.2, target macOS .v26, language mode .v5. Single executable target "MacroTic" with path "Sources". Depends on sparkle-project/Sparkle (from 2.6.4). linkerSettings add -rpath @executable_path and @executable_path/../Frameworks so the Sparkle.framework resolves both from .build/debug (local dev) and from Contents/Frameworks (packaged .app).
+SwiftApp-MacOS-Base-Model/
+├── Package.swift              SPM manifest. swift-tools-version:6.2, target macOS .v26, language mode .v5. Single executable target "SwiftApp-MacOS-Base-Model" with path "Sources". Depends on sparkle-project/Sparkle (from 2.6.4). linkerSettings add -rpath @executable_path and @executable_path/../Frameworks so the Sparkle.framework resolves both from .build/debug (local dev) and from Contents/Frameworks (packaged .app).
 ├── Package.resolved           Pins the resolved Sparkle version. Scripts/build_appcast.sh and Scripts/generate_sparkle_keys.sh read this to download matching Sparkle CLI tools.
-├── dev.sh                     Hot reload script. On start, kills any already-running MacroTic instance (even from a previous/untracked session) before the first build. Uses fswatch to watch Sources/ recursively. On file change: kills running app → swift build → relaunch. Run with: bash dev.sh
+├── dev.sh                     Hot reload script. On start, kills any already-running SwiftApp-MacOS-Base-Model instance (even from a previous/untracked session) before the first build. Uses fswatch to watch Sources/ recursively. On file change: kills running app → swift build → relaunch. Run with: bash dev.sh
 ├── .gitignore                 Ignores .build/, .swiftpm/, xcodeproj, DerivedData, .DS_Store, build/, dist/, .sparkle-tools/
 └── AI_PROJECT_MAP.md          THIS FILE. Project map for AI agents.
 ```
@@ -29,7 +29,7 @@ MacroTic/
 
 ```
 .github/workflows/
-└── release.yml                Triggers on push of tags matching v*.*.*. Builds release binary, packages MacroTic.app
+└── release.yml                Triggers on push of tags matching v*.*.*. Builds release binary, packages SwiftApp-MacOS-Base-Model.app
                                 (via Scripts/package_app.sh), signs it for Sparkle and generates the appcast
                                 (via Scripts/build_appcast.sh), creates a GitHub Release with the .zip + appcast.xml,
                                 then deletes every other release so only the latest stays published.
@@ -44,9 +44,9 @@ Packaging/
                                 install automatically without prompting.
 
 Scripts/
-├── package_app.sh              Builds build/MacroTic.app from .build/release, embeds Sparkle.framework into
+├── package_app.sh              Builds build/SwiftApp-MacOS-Base-Model.app from .build/release, embeds Sparkle.framework into
 │                                Contents/Frameworks, fills in Packaging/Info.plist, ad-hoc codesigns (deep, including
-│                                Sparkle's nested XPC services/Autoupdate/Updater.app), zips to dist/MacroTic-<version>.zip.
+│                                Sparkle's nested XPC services/Autoupdate/Updater.app), zips to dist/SwiftApp-MacOS-Base-Model-<version>.zip.
 ├── build_appcast.sh             Downloads the Sparkle CLI tools matching Package.resolved's pinned version, runs
 │                                generate_appcast against dist/ to sign the zip (EdDSA) and emit dist/appcast.xml.
 │                                Reads the private key from SPARKLE_PRIVATE_KEY (never written to disk outside a temp file).
@@ -76,7 +76,7 @@ All Swift source files live under `Sources/`. SPM compiles every `.swift` file i
 
 ```
 App/
-├── MacroTicApp.swift          ENTRY POINT. @main enum MacroTic with static func main().
+├── MacroTicApp.swift          ENTRY POINT. @main enum SwiftAppBase with static func main().
 │                              Creates NSApplication, sets .accessory policy (no Dock icon),
 │                              assigns AppDelegate, calls app.run().
 │                              AppDelegate creates and holds PanelController on launch.
@@ -168,7 +168,7 @@ Components/
                                toggle button.
                                Chevron icon: compact left/right depending on isExpanded.
                                Hover: scale 1.08, opacity 1.0. Idle: opacity 0.75.
-                               Context menu: "Quit MacroTic" (terminates app).
+                               Context menu: "Quit SwiftApp-MacOS-Base-Model" (terminates app).
                                Frame width: PanelController.tabWidth (24px), unchanged between states —
                                only the PanelShape behind it (bump vs flush) changes with isExpanded.
 ```
@@ -197,7 +197,7 @@ Components/
 
 ```bash
 swift build                    # compile
-.build/debug/MacroTic          # run directly
+.build/debug/SwiftApp-MacOS-Base-Model          # run directly
 bash dev.sh                    # hot reload (watch + rebuild + relaunch)
 
 # Release packaging (normally done by .github/workflows/release.yml on a tag push):

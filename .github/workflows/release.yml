@@ -32,7 +32,7 @@ jobs:
       - name: Build release binary
         run: swift build -c release
 
-      - name: Package MacroTic.app
+      - name: Package SwiftApp-MacOS-Base-Model.app
         env:
           APP_VERSION: ${{ steps.version.outputs.version }}
           APP_OWNER: ${{ github.repository_owner }}
@@ -51,7 +51,7 @@ jobs:
         run: |
           gh release create "${{ steps.version.outputs.tag }}" \
             dist/*.zip dist/appcast.xml \
-            --title "MacroTic ${{ steps.version.outputs.version }}" \
+            --title "SwiftApp-MacOS-Base-Model ${{ steps.version.outputs.version }}" \
             --generate-notes
 
       - name: Keep only the latest release

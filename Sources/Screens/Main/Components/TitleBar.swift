@@ -14,11 +14,11 @@ struct TitleBar: View {
                     .contentShape(Rectangle())
             }
             .buttonStyle(TitleBarButtonStyle())
-            .help("Fechar o MacroTic")
+            .help("Fechar o SwiftApp-MacOS-Base-Model")
             .accessibilityLabel("Fechar aplicativo")
-            .accessibilityHint("Encerra o MacroTic completamente")
+            .accessibilityHint("Encerra o SwiftApp-MacOS-Base-Model completamente")
             .alert(
-                "Fechar o MacroTic?",
+                "Fechar o SwiftApp-MacOS-Base-Model?",
                 isPresented: Binding(
                     get: { state.showQuitConfirmation },
                     set: { state.showQuitConfirmation = $0 }
@@ -29,7 +29,7 @@ struct TitleBar: View {
                     NSApplication.shared.terminate(nil)
                 }
             } message: {
-                Text("Isso vai encerrar o MacroTic completamente.")
+                Text("Isso vai encerrar o SwiftApp-MacOS-Base-Model completamente.")
             }
 
             Spacer()

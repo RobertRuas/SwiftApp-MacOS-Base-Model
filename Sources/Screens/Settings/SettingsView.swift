@@ -24,7 +24,7 @@ private struct UpdatesSection: View {
                 .foregroundStyle(.secondary)
                 .textCase(.uppercase)
 
-            Text("MacroTic verifica e instala novas versões automaticamente em segundo plano.")
+            Text("SwiftApp-MacOS-Base-Model verifica e instala novas versões automaticamente em segundo plano.")
                 .font(.system(size: 12))
                 .foregroundStyle(.tertiary)
 

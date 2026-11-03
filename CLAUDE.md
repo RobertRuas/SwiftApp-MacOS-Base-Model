@@ -1,4 +1,4 @@
-# CLAUDE.md — Agent Rules for MacroTic
+# CLAUDE.md — Agent Rules for SwiftApp-MacOS-Base-Model
 
 ## Navigation Rule (mandatory, every task)
 

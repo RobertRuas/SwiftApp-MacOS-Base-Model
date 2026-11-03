@@ -14,7 +14,7 @@ struct SidePanel: View {
             height: PanelController.panelHeight - PanelController.titleBarHeight
         )
         .contextMenu {
-            Button("Quit MacroTic") {
+            Button("Quit SwiftApp-MacOS-Base-Model") {
                 NSApplication.shared.terminate(nil)
             }
         }

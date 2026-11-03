@@ -1,7 +1,7 @@
 import AppKit
 
 @main
-enum MacroTic {
+enum SwiftAppBase {
     static let appDelegate = AppDelegate()
 
     static func main() {

@@ -1,10 +1,10 @@
 #!/bin/bash
-# Hot reload for MacroTic — watches Sources/ and rebuilds+relaunches on change
+# Hot reload for SwiftApp-MacOS-Base-Model — watches Sources/ and rebuilds+relaunches on change
 
 PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$PROJECT_DIR"
 
-APP_NAME="MacroTic"
+APP_NAME="SwiftApp-MacOS-Base-Model"
 PID=""
 WATCH_PID=""
 
@@ -82,7 +82,7 @@ restart_app() {
 show_menu() {
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "  MacroTic Dev Menu"
+    echo "  SwiftApp-MacOS-Base-Model Dev Menu"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "  [B] Build and run"
     echo "  [R] Restart app"
@@ -156,7 +156,7 @@ watch_files() {
     done
 }
 
-echo "=== MacroTic Dev Server ==="
+echo "=== SwiftApp-MacOS-Base-Model Dev Server ==="
 echo ""
 
 kill_stale_instances
