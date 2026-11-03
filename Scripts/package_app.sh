@@ -34,10 +34,10 @@ fi
 cp -R "$SPARKLE_FRAMEWORK" "$APP_BUNDLE/Contents/Frameworks/Sparkle.framework"
 
 sed \
-    -e "s/__VERSION__/$VERSION/g" \
-    -e "s/__OWNER__/$OWNER/g" \
-    -e "s/__REPO__/$REPO/g" \
-    -e "s/__SPARKLE_PUBLIC_KEY__/$PUBLIC_KEY/g" \
+    -e "s|__VERSION__|$VERSION|g" \
+    -e "s|__OWNER__|$OWNER|g" \
+    -e "s|__REPO__|$REPO|g" \
+    -e "s|__SPARKLE_PUBLIC_KEY__|$PUBLIC_KEY|g" \
     Packaging/Info.plist > "$APP_BUNDLE/Contents/Info.plist"
 
 find "$APP_BUNDLE/Contents/Frameworks/Sparkle.framework" \
